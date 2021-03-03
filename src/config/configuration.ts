@@ -4,6 +4,7 @@ export default () => ({
   pokeapi: {
     limits: {
       pokemon: '809',
+      items: '954',
     },
     baseUrl: 'https://pokeapi.co/api/v2',
     berryUrl: '/berry',
@@ -13,6 +14,7 @@ export default () => ({
     pokedexUrl: '/pokedex',
     versionUrl: '/version',
     versionGroupUrl: '/version-group',
+    itemsUrl: '/item',
     pokemonUrl: '/pokemon',
   },
 });
