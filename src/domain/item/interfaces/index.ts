@@ -1,11 +1,13 @@
 import { Pokemon } from 'src/domain/pokemon/interfaces';
 import { Version } from '../../generation/interfaces';
 import {
+  ApiResource,
   Description,
   Effect,
   GenerationGameIndex,
   MachineVersionDetail,
   Name,
+  NamedApiResource,
   VerboseEffect,
   VersionGroupFlavorText,
 } from '../../interfaces';
@@ -15,16 +17,16 @@ export interface Item {
   name: string;
   cost: number;
   fling_power: number;
-  fling_effect: ItemFlingEffect;
-  attributes: ItemAttribute;
-  category: ItemCategory;
+  fling_effect: NamedApiResource;
+  attributes: NamedApiResource[];
+  category: NamedApiResource;
   effect_entries: VerboseEffect[];
   flavor_text_entries: VersionGroupFlavorText[];
   game_indices: GenerationGameIndex[];
   names: Name[];
   sprites: ItemSprites;
   held_by_pokemon: ItemHolderPokemon[];
-  baby_trigger_for: any;
+  baby_trigger_for: ApiResource;
   machines: MachineVersionDetail[];
 }
 

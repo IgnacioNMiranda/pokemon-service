@@ -65,7 +65,7 @@ export interface NamedApiResource {
 export interface NamedApiResourceList {
   count: number;
   next: string;
-  previous: boolean;
+  previous: string;
   results: Array<NamedApiResource>;
 }
 

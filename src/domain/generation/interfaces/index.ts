@@ -1,15 +1,15 @@
-import { Description, Name } from '../../interfaces';
+import { Description, Name, NamedApiResource } from '../../interfaces';
 
 export interface Generation {
   id: number;
   name: string;
-  abilities: any[];
+  abilities: NamedApiResource[];
   names: Name[];
-  main_region: any;
-  moves: any;
-  pokemon_species: any[];
-  types: any[];
-  version_groups: any[];
+  main_region: NamedApiResource;
+  moves: NamedApiResource[];
+  pokemon_species: NamedApiResource[];
+  types: NamedApiResource[];
+  version_groups: NamedApiResource[];
 }
 
 export interface Pokedex {
@@ -17,21 +17,21 @@ export interface Pokedex {
   name: string;
   is_main_series: boolean;
   descriptions: Description[];
-  names: any[];
+  names: Name[];
   pokemon_entries: PokemonEntry[];
-  region: any;
-  version_groups: any[];
+  region: NamedApiResource;
+  version_groups: NamedApiResource[];
 }
 
 interface PokemonEntry {
   entry_number: number;
-  pokemon_species: any;
+  pokemon_species: NamedApiResource;
 }
 
 export interface Version {
   id: number;
   name: string;
-  names: [];
+  names: Name[];
   version_group: VersionGroup;
 }
 
@@ -40,10 +40,8 @@ export interface VersionGroup {
   name: string;
   order: number;
   generation: Generation;
-  move_learn_methods: any[];
-  // 'move_learn_methods': MoveLearnMethod[],
-  pokedexes: Pokedex[];
-  // regions: Region[],
-  regions: any[];
-  versions: Version[];
+  move_learn_methods: NamedApiResource[];
+  pokedexes: NamedApiResource[];
+  regions: NamedApiResource[];
+  versions: NamedApiResource[];
 }

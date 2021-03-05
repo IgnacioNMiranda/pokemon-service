@@ -1,11 +1,11 @@
-import { BerryFlavor } from 'src/domain/berry/interfaces';
-import { EvolutionChain } from 'src/domain/evolution/interfaces';
+import { BerryFlavor } from '../../berry/interfaces';
+import { EvolutionChain } from '../../evolution/interfaces';
 import {
   Generation,
   Pokedex,
   Version,
   VersionGroup,
-} from 'src/domain/generation/interfaces';
+} from '../../generation/interfaces';
 import {
   Description,
   Effect,
@@ -13,16 +13,13 @@ import {
   GenerationGameIndex,
   Language,
   Name,
+  NamedApiResource,
   VerboseEffect,
   VersionGameIndex,
-} from 'src/domain/interfaces';
-import { Item } from 'src/domain/item/interfaces';
-import { PalParkArea } from 'src/domain/locations/interfaces';
-import {
-  Move,
-  MoveDamageClass,
-  MoveLearnMethod,
-} from 'src/domain/move/interfaces';
+} from '../../interfaces';
+import { Item } from '../../item/interfaces';
+import { PalParkArea } from '../../locations/interfaces';
+import { Move, MoveDamageClass, MoveLearnMethod } from '../../move/interfaces';
 import { PokemonController } from '../controllers/pokemon.controller';
 
 export interface Ability {
@@ -60,8 +57,6 @@ export interface Characteristic {
   possible_values: number[];
 }
 
-//pausa
-
 export interface Pokemon {
   id: number;
   name: string;
@@ -70,16 +65,16 @@ export interface Pokemon {
   is_default: boolean;
   order: number;
   weight: number;
-  abilities: PokemonAbility;
-  forms: PokemonForm[];
+  abilities: PokemonAbility[];
+  forms: NamedApiResource[];
   game_indices: VersionGameIndex[];
   held_items: PokemonHeldItem[];
   location_area_encounters: string;
   moves: PokemonMove[];
   sprites: PokemonSprites;
-  species: PokemonSpecies;
+  species: NamedApiResource;
   stats: PokemonStat[];
-  types: PokemonType;
+  types: PokemonType[];
 }
 
 export interface PokemonAbility {
@@ -244,7 +239,7 @@ export interface AwesomeName {
 
 export interface PokemonType {
   slot: number;
-  type: Type;
+  type: NamedApiResource;
 }
 
 export interface PokemonStat {
