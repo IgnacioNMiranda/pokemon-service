@@ -4,6 +4,6 @@ import { BaseService } from './base.service';
 @Module({
   imports: [HttpModule],
   providers: [BaseService],
-  exports: [HttpModule],
+  exports: [BaseService],
 })
 export class BaseServiceModule {}

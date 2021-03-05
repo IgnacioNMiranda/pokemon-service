@@ -22,16 +22,12 @@ export class BaseService {
     return new Promise((resolve, reject) => {
       const path = `${this.pokeapi.baseUrl}${resourcePath}/?limit=${limit}`;
 
-      try {
-        this.httpService
-          .get(path)
-          .pipe(map((response) => response.data))
-          .toPromise()
-          .then(resolve)
-          .catch(reject);
-      } catch (error) {
-        reject(error);
-      }
+      this.httpService
+        .get(path)
+        .pipe(map((response) => response.data))
+        .toPromise()
+        .then(resolve)
+        .catch(reject);
     });
   }
 
@@ -43,16 +39,12 @@ export class BaseService {
     return new Promise((resolve, reject) => {
       const path = `${this.pokeapi.baseUrl}${resourcePath}/${query}`;
 
-      try {
-        this.httpService
-          .get(path)
-          .pipe(map((response) => response.data))
-          .toPromise()
-          .then(resolve)
-          .catch(reject);
-      } catch (error) {
-        reject(error);
-      }
+      this.httpService
+        .get(path)
+        .pipe(map((response) => response.data))
+        .toPromise()
+        .then(resolve)
+        .catch(reject);
     });
   }
 }

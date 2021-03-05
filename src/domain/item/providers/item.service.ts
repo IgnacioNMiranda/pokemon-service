@@ -1,20 +1,30 @@
 import { Injectable } from '@nestjs/common';
-import { BaseService } from 'src/domain/base.service';
+import { BaseService } from '../../base.service';
+import { NamedApiResourceList } from '../../interfaces';
+import { Item } from '../interfaces';
 
 @Injectable()
-export class ItemService extends BaseService {
+export class ItemService {
+  constructor(private readonly baseService: BaseService) {}
+
   /**
    * Obtains information of every item
    */
-  getAllItems(): Promise<any> {
-    return this.getAll(this.pokeapi.itemsUrl, this.pokeapi.limits.items);
+  getAllItems(): Promise<NamedApiResourceList> {
+    return this.baseService.getAll(
+      this.baseService.pokeapi.itemsUrl,
+      this.baseService.pokeapi.limits.items,
+    );
   }
 
   /**
    * Obtains information of an specific item
    * @param query id or name of an item
    */
-  getItemByQuery(query: string): Promise<any> {
-    return this.getByQuery(this.pokeapi.itemsUrl, query);
+  getItemByQuery(query: string): Promise<Item> {
+    return this.baseService.getByQuery(
+      this.baseService.pokeapi.itemsUrl,
+      query,
+    );
   }
 }
