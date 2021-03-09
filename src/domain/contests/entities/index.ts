@@ -1,21 +1,21 @@
-import { BerryFlavor } from 'src/domain/berry/interfaces';
-import { Effect, FlavorText, Language } from 'src/domain/interfaces';
-import { Move } from 'src/domain/move/interfaces';
+import { BerryFlavor } from '../../berry/entities';
+import { Effect, FlavorText, Language } from '../../entities';
+import { Move } from '../../move/entities';
 
-export interface ContestType {
+export class ContestType {
   id: number;
   name: string;
   berry_flavor: BerryFlavor;
   names: ContestName[];
 }
 
-export interface ContestName {
+export class ContestName {
   name: string;
   color: string;
   language: Language;
 }
 
-export interface ContestEffect {
+export class ContestEffect {
   id: number;
   appeal: number;
   jam: number;
@@ -23,7 +23,7 @@ export interface ContestEffect {
   flavor_text_entries: FlavorText[];
 }
 
-export interface SuperContestEffect {
+export class SuperContestEffect {
   id: number;
   appeal: number;
   flavor_text_entries: FlavorText[];

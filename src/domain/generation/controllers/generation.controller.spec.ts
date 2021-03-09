@@ -8,7 +8,7 @@ import configuration from '../../../config/configuration';
 import { BaseServiceModule } from '../../base.service.module';
 import { GenerationService } from '../providers/generation.service';
 import { GenerationController } from './generation.controller';
-import { NamedApiResourceList } from 'src/domain/interfaces';
+import { NamedApiResourceList } from '../../entities';
 
 describe('GenerationController', () => {
   let controller: GenerationController;

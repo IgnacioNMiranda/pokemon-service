@@ -2,18 +2,18 @@ import {
   ContestEffect,
   ContestType,
   SuperContestEffect,
-} from 'src/domain/contests/interfaces';
-import { Generation, VersionGroup } from 'src/domain/generation/interfaces';
+} from '../../contests/entities';
+import { Generation, VersionGroup } from '../../generation/entities';
 import {
   Description,
   Language,
   MachineVersionDetail,
   Name,
   VerboseEffect,
-} from 'src/domain/interfaces';
-import { AbilityEffectChange, Stat, Type } from 'src/domain/pokemon/interfaces';
+} from '../../entities';
+import { AbilityEffectChange, Stat, Type } from '../../pokemon/entities';
 
-export interface Move {
+export class Move {
   id: number;
   name: string;
   accuracy: number;
@@ -39,17 +39,17 @@ export interface Move {
   type: Type;
 }
 
-export interface ContestComboSets {
+export class ContestComboSets {
   normal: ContestComboDetail;
   super: ContestComboDetail;
 }
 
-export interface ContestComboDetail {
+export class ContestComboDetail {
   use_before: Move;
   use_after: Move;
 }
 
-export interface MoveDamageClass {
+export class MoveDamageClass {
   id: number;
   name: string;
   descriptions: Description[];
@@ -57,13 +57,13 @@ export interface MoveDamageClass {
   names: Name[];
 }
 
-export interface MoveFlavorText {
+export class MoveFlavorText {
   flavor_text: string;
   language: Language;
   version_group: VersionGroup;
 }
 
-export interface MoveMetaData {
+export class MoveMetaData {
   ailment: MoveAilment;
   category: MoveCategory;
   min_hits: number;
@@ -78,21 +78,21 @@ export interface MoveMetaData {
   stat_chance: number;
 }
 
-export interface MoveAilment {
+export class MoveAilment {
   id: number;
   name: string;
   moves: Move[];
   names: Name[];
 }
 
-export interface MoveCategory {
+export class MoveCategory {
   id: number;
   name: string;
   moves: Move[];
   descriptions: Description[];
 }
 
-export interface PastMoveStatValues {
+export class PastMoveStatValues {
   accuracy: number;
   effect_chance: number;
   power: number;
@@ -102,12 +102,12 @@ export interface PastMoveStatValues {
   version_group: VersionGroup;
 }
 
-export interface MoveStatChange {
+export class MoveStatChange {
   change: number;
   stat: Stat;
 }
 
-export interface MoveLearnMethod {
+export class MoveLearnMethod {
   id: number;
   name: string;
   descriptions: Description[];
@@ -115,7 +115,7 @@ export interface MoveLearnMethod {
   version_groups: VersionGroup[];
 }
 
-export interface MoveTarget {
+export class MoveTarget {
   id: number;
   name: string;
   descriptions: Description[];

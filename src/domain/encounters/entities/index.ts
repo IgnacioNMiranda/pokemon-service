@@ -1,20 +1,20 @@
-import { Name } from 'src/domain/interfaces';
+import { Name } from '../../entities';
 
-export interface EncounterMethod {
+export class EncounterMethod {
   id: number;
   name: string;
   order: number;
   names: Name[];
 }
 
-export interface EncounterCondition {
+export class EncounterCondition {
   id: number;
   name: string;
   names: Name[];
   values: EncounterConditionValue[];
 }
 
-export interface EncounterConditionValue {
+export class EncounterConditionValue {
   id: number;
   name: string;
   condition: EncounterCondition;

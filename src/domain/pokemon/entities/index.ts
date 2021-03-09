@@ -1,11 +1,11 @@
-import { BerryFlavor } from '../../berry/interfaces';
-import { EvolutionChain } from '../../evolution/interfaces';
+import { BerryFlavor } from '../../berry/entities';
+import { EvolutionChain } from '../../evolution/entities';
 import {
   Generation,
   Pokedex,
   Version,
   VersionGroup,
-} from '../../generation/interfaces';
+} from '../../generation/entities';
 import {
   Description,
   Effect,
@@ -16,13 +16,14 @@ import {
   NamedApiResource,
   VerboseEffect,
   VersionGameIndex,
-} from '../../interfaces';
-import { Item } from '../../item/interfaces';
-import { PalParkArea } from '../../locations/interfaces';
-import { Move, MoveDamageClass, MoveLearnMethod } from '../../move/interfaces';
+} from '../../entities';
+import { Item } from '../../item/entities';
+import { PalParkArea } from '../../locations/entities';
+import { Move, MoveDamageClass, MoveLearnMethod } from '../../move/entities';
 import { PokemonController } from '../controllers/pokemon.controller';
+import { ApiProperty } from '@nestjs/swagger';
 
-export interface Ability {
+export class Ability {
   id: number;
   name: string;
   is_main_series: boolean;
@@ -34,56 +35,36 @@ export interface Ability {
   pokemon: AbilityPokemon;
 }
 
-export interface AbilityEffectChange {
+export class AbilityEffectChange {
   effect_entries: Effect[];
   version_group: VersionGroup;
 }
 
-export interface AbilityFlavorText {
+export class AbilityFlavorText {
   flavor_text: string;
   language: Language;
   version_group: VersionGroup;
 }
 
-export interface AbilityPokemon {
+export class AbilityPokemon {
   is_hidden: boolean;
   slot: number;
   pokemon: PokemonController;
 }
 
-export interface Characteristic {
+export class Characteristic {
   id: number;
   gene_modulo: number;
   possible_values: number[];
 }
 
-export interface Pokemon {
-  id: number;
-  name: string;
-  base_experience: number;
-  height: number;
-  is_default: boolean;
-  order: number;
-  weight: number;
-  abilities: PokemonAbility[];
-  forms: NamedApiResource[];
-  game_indices: VersionGameIndex[];
-  held_items: PokemonHeldItem[];
-  location_area_encounters: string;
-  moves: PokemonMove[];
-  sprites: PokemonSprites;
-  species: NamedApiResource;
-  stats: PokemonStat[];
-  types: PokemonType[];
-}
-
-export interface PokemonAbility {
+export class PokemonAbility {
   is_hidden: boolean;
   slot: number;
   ability: Ability;
 }
 
-export interface PokemonForm {
+export class PokemonForm {
   id: number;
   name: string;
   order: number;
@@ -99,42 +80,42 @@ export interface PokemonForm {
   form_names: Name[];
 }
 
-export interface PokemonFormSprites {
+export class PokemonFormSprites {
   front_default: string;
   front_shiny: string;
   back_default: string;
   back_shiny: string;
 }
 
-export interface PokemonHabitat {
+export class PokemonHabitat {
   id: number;
   name: string;
   names: Name[];
   pokemon_species: PokemonSpecies[];
 }
 
-export interface PokemonHeldItem {
+export class PokemonHeldItem {
   item: Item;
   version_details: PokemonHeldItemVersion[];
 }
 
-export interface PokemonHeldItemVersion {
+export class PokemonHeldItemVersion {
   version: Version;
   rarity: number;
 }
 
-export interface PokemonMove {
+export class PokemonMove {
   move: Move;
   version_group_details: PokemonMoveVersion[];
 }
 
-export interface PokemonMoveVersion {
+export class PokemonMoveVersion {
   move_learn_method: MoveLearnMethod;
   version_group: VersionGroup;
   level_learned_at: number;
 }
 
-export interface PokemonSprites {
+export class PokemonSprites {
   front_default: string;
   front_shiny: string;
   front_female: string;
@@ -145,7 +126,7 @@ export interface PokemonSprites {
   back_shiny_female: string;
 }
 
-export interface PokemonSpecies {
+export class PokemonSpecies {
   id: number;
   name: string;
   order: number;
@@ -175,23 +156,23 @@ export interface PokemonSpecies {
   varieties: PokemonSpeciesVariety[];
 }
 
-export interface Genus {
+export class Genus {
   genus: string;
   language: Language;
 }
 
-export interface PalParkEncounterArea {
+export class PalParkEncounterArea {
   base_score: number;
   rate: number;
   area: PalParkArea;
 }
 
-export interface PokemonSpeciesVariety {
+export class PokemonSpeciesVariety {
   is_default: boolean;
   pokemon: Pokemon;
 }
 
-export interface GrowthRate {
+export class GrowthRate {
   id: number;
   name: string;
   formula: string;
@@ -200,31 +181,31 @@ export interface GrowthRate {
   pokemon_species: PokemonSpecies[];
 }
 
-export interface GrowthRateExperienceLevel {
+export class GrowthRateExperienceLevel {
   level: number;
   experience: number;
 }
 
-export interface PokemonSpeciesDexEntry {
+export class PokemonSpeciesDexEntry {
   entry_number: number;
   pokedex: Pokedex;
 }
 
-export interface EggGroup {
+export class EggGroup {
   id: number;
   name: string;
   names: Name[];
   pokemon_species: PokemonSpecies[];
 }
 
-export interface PokemonColor {
+export class PokemonColor {
   id: number;
   name: string;
   names: Name[];
   pokemon_species: PokemonSpecies[];
 }
 
-export interface PokemonShape {
+export class PokemonShape {
   id: number;
   name: string;
   awesome_names: AwesomeName[];
@@ -232,23 +213,23 @@ export interface PokemonShape {
   pokemon_species: PokemonSpecies[];
 }
 
-export interface AwesomeName {
+export class AwesomeName {
   awesome_name: string;
   language: Language;
 }
 
-export interface PokemonType {
+export class PokemonType {
   slot: number;
   type: NamedApiResource;
 }
 
-export interface PokemonStat {
+export class PokemonStat {
   stat: Stat;
   effort: number;
   base_stat: number;
 }
 
-export interface Stat {
+export class Stat {
   id: number;
   name: string;
   game_index: number;
@@ -260,22 +241,22 @@ export interface Stat {
   names: Name[];
 }
 
-export interface MoveStatAffectSets {
+export class MoveStatAffectSets {
   increase: MoveStatAffect;
   decrease: MoveStatAffect;
 }
 
-export interface MoveStatAffect {
+export class MoveStatAffect {
   change: number;
   move: Move;
 }
 
-export interface NatureStatAffectSets {
+export class NatureStatAffectSets {
   increase: Nature;
   decrease: Nature;
 }
 
-export interface Nature {
+export class Nature {
   id: number;
   name: string;
   decreased_stat: Stat;
@@ -287,41 +268,41 @@ export interface Nature {
   names: Name[];
 }
 
-export interface NatureStatChange {
+export class NatureStatChange {
   max_change: number;
   pokeathlon_stat: PokeathlonStat;
 }
 
-export interface MoveBattleStylePreference {
+export class MoveBattleStylePreference {
   low_hp_preference: number;
   high_hp_preference: number;
   move_battle_style: MoveBattleStyle;
 }
 
-export interface MoveBattleStyle {
+export class MoveBattleStyle {
   id: number;
   name: string;
   names: Name[];
 }
 
-export interface PokeathlonStat {
+export class PokeathlonStat {
   id: number;
   name: string;
   names: Name[];
   affecting_natures: NaturePokeathlonStatAffectSets;
 }
 
-export interface NaturePokeathlonStatAffectSets {
+export class NaturePokeathlonStatAffectSets {
   increase: NaturePokeathlonStatAffect;
   decrease: NaturePokeathlonStatAffect;
 }
 
-export interface NaturePokeathlonStatAffect {
+export class NaturePokeathlonStatAffect {
   max_change: number;
   nature: Nature;
 }
 
-export interface Type {
+export class Type {
   id: number;
   name: string;
   damage_relations: TypeRelations;
@@ -333,16 +314,69 @@ export interface Type {
   moves: Move[];
 }
 
-export interface TypePokemon {
+export class TypePokemon {
   slot: number;
   pokemon: Pokemon;
 }
 
-export interface TypeRelations {
+export class TypeRelations {
   no_damage_to: Type[];
   half_damage_to: Type[];
   double_damage_to: Type[];
   no_damage_from: Type[];
   half_damage_from: Type[];
   double_damage_from: Type[];
+}
+
+export class Pokemon {
+  @ApiProperty()
+  id: number;
+
+  @ApiProperty()
+  name: string;
+
+  @ApiProperty()
+  base_experience: number;
+
+  @ApiProperty()
+  height: number;
+
+  @ApiProperty()
+  is_default: boolean;
+
+  @ApiProperty()
+  order: number;
+
+  @ApiProperty()
+  weight: number;
+
+  @ApiProperty({ type: [PokemonAbility] })
+  abilities: PokemonAbility[];
+
+  @ApiProperty({ type: [NamedApiResource] })
+  forms: NamedApiResource[];
+
+  @ApiProperty({ type: [VersionGameIndex] })
+  game_indices: VersionGameIndex[];
+
+  @ApiProperty({ type: [PokemonHeldItem] })
+  held_items: PokemonHeldItem[];
+
+  @ApiProperty()
+  location_area_encounters: string;
+
+  @ApiProperty({ type: [PokemonMove] })
+  moves: PokemonMove[];
+
+  @ApiProperty()
+  sprites: PokemonSprites;
+
+  @ApiProperty()
+  species: NamedApiResource;
+
+  @ApiProperty({ type: [PokemonStat] })
+  stats: PokemonStat[];
+
+  @ApiProperty({ type: [PokemonType] })
+  types: PokemonType[];
 }

@@ -1,5 +1,5 @@
-import { NamedApiResourceList } from '../interfaces';
-import { Pokemon } from '../pokemon/interfaces';
+import { NamedApiResourceList } from '../entities';
+import { Pokemon } from '../pokemon/entities';
 
 export const namedAPIResourceListMock: NamedApiResourceList = {
   count: 1,

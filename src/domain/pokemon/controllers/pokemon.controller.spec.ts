@@ -5,10 +5,10 @@ import {
   namedAPIResourceListMock,
   pokemonMock,
 } from '../../mocks/pokemon.mock';
-import { NamedApiResourceList } from '../../interfaces';
+import { NamedApiResourceList } from '../../entities';
 import { ConfigModule } from '@nestjs/config';
 import configuration from '../../../config/configuration';
-import { Pokemon } from '../interfaces';
+import { Pokemon } from '../entities';
 import { BaseServiceModule } from '../../base.service.module';
 
 describe('PokemonController', () => {

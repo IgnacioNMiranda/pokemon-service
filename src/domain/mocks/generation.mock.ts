@@ -1,5 +1,5 @@
-import { NamedApiResourceList } from '../interfaces';
-import { Generation } from '../generation/interfaces';
+import { NamedApiResourceList } from '../entities';
+import { Generation } from '../generation/entities';
 
 export const namedAPIResourceListMock: NamedApiResourceList = {
   count: 1,

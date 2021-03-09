@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { BaseService } from '../../base.service';
-import { NamedApiResourceList } from '../../interfaces';
-import { Generation } from '../interfaces';
+import { NamedApiResourceList } from '../../entities';
+import { Generation } from '../entities';
 
 @Injectable()
 export class GenerationService {

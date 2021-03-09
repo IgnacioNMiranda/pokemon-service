@@ -1,22 +1,22 @@
-import { Name } from 'src/domain/interfaces';
-import { Item } from 'src/domain/item/interfaces';
-import { Move } from 'src/domain/move/interfaces';
-import { PokemonSpecies, Type } from 'src/domain/pokemon/interfaces';
+import { Name } from '../../entities';
+import { Item } from '../../item/entities';
+import { Move } from '../../move/entities';
+import { PokemonSpecies, Type } from '../../pokemon/entities';
 
-export interface EvolutionChain {
+export class EvolutionChain {
   id: number;
   baby_trigger_item: Item;
   chain: ChainLink;
 }
 
-export interface ChainLink {
+export class ChainLink {
   is_baby: boolean;
   species: PokemonSpecies;
   evolution_details: EvolutionDetail;
   evolves_to: ChainLink[];
 }
 
-export interface EvolutionDetail {
+export class EvolutionDetail {
   item: Item;
   trigger: EvolutionTrigger;
   gender: number;
@@ -37,7 +37,7 @@ export interface EvolutionDetail {
   turn_upside_down: boolean;
 }
 
-export interface EvolutionTrigger {
+export class EvolutionTrigger {
   id: number;
   name: string;
   names: Name[];

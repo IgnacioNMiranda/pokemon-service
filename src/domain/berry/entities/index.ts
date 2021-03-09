@@ -1,9 +1,9 @@
-import { ContestType } from 'src/domain/contests/interfaces';
-import { Name } from 'src/domain/interfaces';
-import { Item } from 'src/domain/item/interfaces';
-import { Type } from 'src/domain/pokemon/interfaces';
+import { ContestType } from '../../contests/entities';
+import { Name } from '../../entities';
+import { Item } from '../../item/entities';
+import { Type } from '../../pokemon/entities';
 
-export interface Berry {
+export class Berry {
   id: number;
   name: string;
   growth_time: number;
@@ -18,14 +18,14 @@ export interface Berry {
   natural_gift_type: Type;
 }
 
-export interface BerryFirmness {
+export class BerryFirmness {
   id: number;
   name: string;
   berries: Berry[];
   names: Name[];
 }
 
-export interface BerryFlavor {
+export class BerryFlavor {
   id: number;
   name: string;
   berries: FlavorBerryMap[];
@@ -33,12 +33,12 @@ export interface BerryFlavor {
   names: Name[];
 }
 
-export interface FlavorBerryMap {
+export class FlavorBerryMap {
   potency: number;
   berry: Berry;
 }
 
-export interface BerryFlavorMap {
+export class BerryFlavorMap {
   potency: number;
   flavor: BerryFlavor;
 }

@@ -1,11 +1,12 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   EncounterConditionValue,
   EncounterMethod,
-} from '../encounters/interfaces';
-import { Generation, Version, VersionGroup } from '../generation/interfaces';
-import { Machine } from '../machines/interfaces';
+} from '../encounters/entities';
+import { Generation, Version, VersionGroup } from '../generation/entities';
+import { Machine } from '../machines/entities';
 
-export interface Language {
+export class Language {
   id: number;
   name: string;
   official: boolean;
@@ -14,21 +15,21 @@ export interface Language {
   names: Name[];
 }
 
-export interface ApiResource {
+export class ApiResource {
   name: string;
 }
 
-export interface Description {
+export class Description {
   description: string;
   language: Language;
 }
 
-export interface Effect {
+export class Effect {
   effect: string;
   language: Language;
 }
 
-export interface Encounter {
+export class Encounter {
   min_level: number;
   max_number: number;
   conditional_values: EncounterConditionValue[];
@@ -36,57 +37,67 @@ export interface Encounter {
   method: EncounterMethod;
 }
 
-export interface FlavorText {
+export class FlavorText {
   flavor_text: string;
   language: Language;
   version: Version;
 }
 
-export interface GenerationGameIndex {
+export class GenerationGameIndex {
   game_index: number;
   generation: Generation;
 }
 
-export interface MachineVersionDetail {
+export class MachineVersionDetail {
   machine: Machine;
   version_group: VersionGroup;
 }
 
-export interface Name {
+export class Name {
   name: string;
   language: Language;
 }
 
-export interface NamedApiResource {
+export class NamedApiResource {
+  @ApiProperty()
   name: string;
+
+  @ApiProperty()
   url: string;
 }
 
-export interface NamedApiResourceList {
+export class NamedApiResourceList {
+  @ApiProperty()
   count: number;
+
+  @ApiProperty()
   next: string;
+
+  @ApiProperty()
   previous: string;
+
+  @ApiProperty({ type: [NamedApiResource] })
   results: Array<NamedApiResource>;
 }
 
-export interface VerboseEffect {
+export class VerboseEffect {
   effect: string;
   short_effect: string;
   language: Language;
 }
 
-export interface VersionEncounterDetail {
+export class VersionEncounterDetail {
   version: Version;
   max_chance: number;
   encounter_details: Encounter[];
 }
 
-export interface VersionGameIndex {
+export class VersionGameIndex {
   game_index: number;
   version: Version;
 }
 
-export interface VersionGroupFlavorText {
+export class VersionGroupFlavorText {
   text: string;
   language: Language;
   version_group: VersionGroup;

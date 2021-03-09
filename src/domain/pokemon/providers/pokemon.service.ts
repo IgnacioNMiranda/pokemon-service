@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { BaseService } from '../../base.service';
-import { NamedApiResourceList } from '../../interfaces';
-import { Pokemon } from '../interfaces';
+import { NamedApiResourceList } from '../../entities';
+import { Pokemon } from '../entities';
 @Injectable()
 export class PokemonService {
   constructor(private readonly baseService: BaseService) {}

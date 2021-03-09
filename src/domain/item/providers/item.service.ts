@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { BaseService } from '../../base.service';
-import { NamedApiResourceList } from '../../interfaces';
-import { Item } from '../interfaces';
+import { NamedApiResourceList } from '../../entities';
+import { Item } from '../entities';
 
 @Injectable()
 export class ItemService {

@@ -1,5 +1,5 @@
-import { NamedApiResourceList } from '../interfaces';
-import { Item } from '../item/interfaces';
+import { NamedApiResourceList } from '../entities';
+import { Item } from '../item/entities';
 
 export const namedAPIResourceListMock: NamedApiResourceList = {
   count: 1,
