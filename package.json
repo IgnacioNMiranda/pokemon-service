@@ -1,10 +1,10 @@
 {
-  "name": "pokeapi-backend",
+  "name": "pokemon-service",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "API that provides Pokemon resources",
+  "author": "Ignacio Miranda F. (N)",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -17,16 +17,22 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:watch:cov": "jest --watch --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^7.6.13",
+    "@nestjs/config": "^0.6.3",
     "@nestjs/core": "^7.6.13",
     "@nestjs/platform-express": "^7.6.13",
+    "@nestjs/swagger": "^4.7.15",
+    "express-basic-auth": "^1.2.0",
+    "helmet": "^4.4.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.6.6"
+    "rxjs": "^6.6.6",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.5.6",
@@ -65,6 +71,18 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "html"
+    ],
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/dist",
+      ".module.ts",
+      "/config",
+      "/main.ts"
+    ]
   }
 }
